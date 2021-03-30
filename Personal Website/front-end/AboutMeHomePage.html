@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - About Me</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigationBar isHidden">
+            <ul>
+                <li><a href="./index.html" class="link">Introduction</a></li>
+                <li><a href="./AboutMeHomePage.html" class="link">Learn More About Me</a></li>
+                <li><a href="./index.html#Technology" class="link">Technology Skills</a></li>
+                <li><a href="./blogs.html" class="link">Blogs</a></li>
+                <li><a href="./index.html#contact_me" class="link">Contact Me</a></li>
+            </ul>
+        </div>
+        <div class="navigationBack">
+            <img class="button" src="./static/mamHomePage/back_icon.jpg" style="cursor: pointer;" alt="">
+        </div>
+
+
+
+        <img class="button" src="./static/images/nevBarIcon1.jpg" alt="" style="cursor: pointer;">
+        <div class="left">
+            <img class="left_image" src="./static/mamHomePage/IMG_6991.JPG">
+        </div>
+        <div class="right">
+            <div class="right_info">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="Introduction">
+                    <img class="circle" src="./static/aboutMeImg/circle-cropped.png" alt="">
+                    <ul class="a">
+                        <li><a href="./Education.html">Education</a></li>
+                        <li><a href="./workExperience.html">Work Experience</a></li>
+                        <li><a href="./projects.html">Projects</a></li>
+                        <li><a href="./Activities.html">Activities</a></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+</body>
+
+<script src="./jq/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    //Introduction
+
+
+
+    $(document).ready(function () {
+        $(".right_info").css("height", $(window).height() + "px")
+        $(".left_image").css("height", $(window).height() + "px")
+        $(".left_image").css("width", $(window).width() / 2.2 + "px")
+        $(".navigationBar").css("height", $(window).height() + "px")
+        $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+        $(".navigationBar").css("right", "-1200px")
+        $(".link").css("opacity", "0");
+        $(".navigationBar").css("opacity", 0)
+
+        let css = $(".navigationBar").css("opacity")
+        console.log(css)
+
+        $(window).resize(function () {
+            $(".right_info").css("height", $(window).height() + "px")
+            $(".left_image").css("height", $(window).height() + "px")
+            $(".left_image").css("width", $(window).width() / 2.2 + "px")
+            $(".navigationBar").css("right", "-1200px")
+            $(".navigationBar").css("height", $(window).height() + "px")
+            $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+            $(".link").css("opacity", "0");
+            $(".navigationBar").css("opacity", "0")
+        })
+
+
+        $(".button").click(function () {
+            let css = $(".navigationBar").css("right")
+            console.log(css)
+            if (css == '10px') {
+                $(".navigationBar").css("right", "-1200px")
+                $(".navigationBar").css("opacity", "0")
+                $(".navigationBar").css("height", $(window).height() + "px")
+                $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+                $(".link").css("opacity", "0");
+            } else {
+                // display = none;
+                $(".navigationBar").css("right", "10px")
+                $(".navigationBar").css("opacity", "1")
+                $(".navigationBar").css("height", $(window).height() + "px")
+                $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+                $(".link").css("opacity", "1");
+            }
+        })
+
+        $(".link").click(function () {
+            $(".navigationBar").css("right", "-1200px")
+            $(".navigationBar").css("opacity", "0")
+            $(".navigationBar").css("height", $(window).height() + "px")
+            $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+            $(".link").css("opacity", "0");
+        })
+
+        $(".navigationBack").click(function () {
+            window.location.href = './index.html'
+        })
+
+    })
+</script>
+
+<style>
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_pgHYYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJFQNcOM.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJVQNcOM.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        font-family: 'Quicksand'
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .a li a {
+        text-decoration: none;
+        margin-left: -30px;
+        font-size: 15px;
+        line-height: 45px;
+        color: #492f7a;
+
+    }
+
+    .circle {
+        margin: auto;
+        height: 150px;
+    }
+
+    ul li a:hover {
+        color: #c09da7;
+    }
+
+    .container {
+        height: 100%;
+        width: 100%;
+        /* 自动居中 */
+        margin: auto;
+        display: flex;
+    }
+
+    .left {
+        flex: 1;
+    }
+
+    /* 700 * 760 */
+    .left img {
+        height: 760px;
+        width: 700px;
+    }
+
+
+    .right {
+        padding-left: 50px;
+        padding-right: 50px;
+        flex: 1;
+        /* 添加下拉框 */
+
+    }
+
+    .right_info {
+        height: 100px;
+        width: 100%;
+        /* overflow: scroll; */
+        text-align: center;
+
+        /* overflow-x: hidden; */
+    }
+
+
+    .right p {
+        padding-left: 90px;
+        padding-right: 90px;
+        font-size: 20px;
+        /*font-family: "Arial Rounded MT";*/
+        font-weight: bold;
+        color: #492f7a;
+    }
+
+    .button {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 120px;
+        top: 50px;
+    }
+
+    .navigationBack {
+        position: fixed;
+        left: 15%;
+        top: 0%;
+    }
+
+    .navigationBack img{
+        width: 45px;
+        height: 30px;
+    }
+
+    .navigationBar {
+        /* opacity: 1; */
+        position: absolute;
+        background-color: #492f7a;
+        right: -1200px;
+        transition: all 0.3s linear 0s;
+        opacity: 0;
+    }
+
+
+    .navigationBar ul {
+        list-style-type: none;
+        margin-top: 100px;
+    }
+
+    .navigationBar li {
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+    .navigationBar li a {
+        text-decoration: none;
+        color: #c09da7;
+    }
+
+    .navigationBar li a:hover {
+        color: white;
+    }
+
+
+
+    .item .image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .item .info ul {
+        list-style-type: none;
+    }
+
+    .item .info li {
+        margin-right: 35px;
+    }
+
+
+    .contact_way_item .icon img {
+        width: 60px;
+        height: 60px;
+    }
+</style>
+
+</html>
