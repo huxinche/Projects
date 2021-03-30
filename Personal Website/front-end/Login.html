@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Website - Login & SignUp</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="form sign-in">
+            <h2>Welcome Back</h2>
+            <label>
+                <span>account</span>
+                <input id="account" type="account" />
+            </label>
+            <label>
+                <span>password</span>
+                <input id="password" type="password" />
+            </label>
+            <p class="forgot-pass"><a href="javascript:">Forget Password？</a></p>
+            <button type="button" class="submit" value="login">Login</button>
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h2>Don't have an account yet？</h2>
+                    <p>Creat an Account</p>
+                </div>
+                <div class="img__text m--in">
+                    <h2>Already have an account?</h2>
+                    <p>Connect with Jessi on her personal website</p>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Login</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2>Creat an Account</h2>
+                <label>
+                    <span>account</span>
+                    <input id="account1" type="text" />
+                </label>
+                <label>
+                    <span>password</span>
+                    <input id="password1" type="password" />
+                </label>
+                <label>
+                    <span>nickname</span>
+                    <input id="nickname1" type="text" />
+                </label>
+                <button type="button" class="fb-btn" style="margin-top: 40px;">Create an Account</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+<style>
+    .active {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+
+<script src="./jq/jquery-3.4.1.min.js"></script>
+<script src="./jq/jquery.cookie.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        let blogId = getUrlParam('blogId')
+
+
+
+        $(".submit").css("transition", "all 0.1s linear 0s")
+        $(".submit").click(function () {
+            let account = $("#account").val()
+            let password = $("#password").val()
+
+
+            if (account == '' || password == '') {
+                $(".submit").addClass('active')
+                $(".submit").text("can not be empty")
+            } else {
+                $.ajax({
+                    url: 'http://8.140.171.57:18001/doLogin',
+                    type: 'get',
+                    data: {
+                        account,
+                        password
+                    },
+                    async: false,
+                    withCredentials: true, //!跨域带cookies
+                    success: function (res) {
+                        if (res.code == 200) {
+                            $(".submit").addClass('active')
+                            $(".submit").text("Incorrect account or password")
+                        } else if (res.code == 201) {
+                            $.cookie('currentUserId', res.data.id)
+                            $.cookie('currentUserName', res.data.nickName)
+                            if (blogId != null || blogId != undefined) {
+                                window.location.href = "./blogDetail.html?id=" + blogId + "&message=loginSuccess"
+                            } else {
+                                window.location.href = "./blogs.html?message=loginSuccess"
+                            }
+
+                        }
+                    }
+                })
+            }
+        })
+
+
+        $(".submit").mouseleave(function () {
+            $(".submit").removeClass('active')
+            $(".submit").text("LOGIN")
+        })
+
+
+
+
+
+
+
+        $(".fb-btn").css("transition", "all 0.1s linear 0s")
+        $(".fb-btn").click(function () {
+            let account = $("#account1").val()
+            let password = $("#password1").val()
+            let nickname = $("#nickname1").val()
+
+
+            if (account == '' || password == '' || nickname == '') {
+                $(".fb-btn").addClass('active')
+                $(".fb-btn").text("can not be empty")
+            } else {
+
+                $.ajax({
+                    url: 'http://8.140.171.57:18001/doSignUp',
+                    type: 'get',
+                    data: {
+                        account,
+                        password,
+                        nickname
+                    },
+                    async: false,
+                    withCredentials: true, //!跨域带cookies
+                    success: function (res) {
+                        if (res.code == 200) {
+                            $(".fb-btn").addClass('active')
+                            $(".fb-btn").text("Incorrect account or password")
+                        } else if (res.code == 201) {
+                            window.location.href = "./blogs.html"
+                            $.cookie('currentUserId', res.data.id)
+                            $.cookie('currentUserName', res.data.nickName)
+                        }
+                    }
+                })
+            }
+        })
+
+
+        $(".fb-btn").mouseleave(function () {
+            $(".fb-btn").removeClass('active')
+            $(".fb-btn").text("LOGIN")
+        })
+    })
+</script>
+
+</html>

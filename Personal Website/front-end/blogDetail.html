@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Blogs</title>
+</head>
+
+<body>
+    <div class="container">
+    </div>
+</body>
+<script src="./jq/jquery-3.4.1.min.js"></script>
+<script src="./jq/jquery.cookie.js"></script>
+<script src="./layui/layui.all.js"></script>
+<script>
+    $(window).ready(function () {
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+
+        let id = getUrlParam('id')
+
+
+        let blogDetail = null;
+        let comments = null;
+
+        $.ajax({
+            url: 'http://8.140.171.57:18001/getBlogById?id=' + id,
+            type: 'get',
+            async: false,
+            success: function (res) {
+                blogDetail = res.data
+            }
+        })
+
+        $.ajax({
+            url: 'http://8.140.171.57:18001/getCommentByBlogId?blogId=' + id,
+            type: 'get',
+            async: false,
+            success: function (res) {
+                comments = res.data
+            }
+        })
+
+
+        $(".container").append(
+            `        <div class="title">
+            `+ blogDetail.title + `
+        </div>
+        <div class="info">
+            <div class="create_time">`+ blogDetail.createTime + `</div>
+            <div class="author">Author: Damon Salvatore</div>
+            <div style="flex: 3;"></div>
+        </div>
+        <div class="content">
+
+
+            <span style="        text-align: left;">
+                `+ blogDetail.contentMarkdown + `</span>
+
+
+
+
+
+        </div>
+        <div class="doComment">
+            <textarea class="textArea" type="text" placeholder="say something..."></textarea>
+            <button>commit</button>
+        </div>
+        <div class="comments">
+
+            </div>
+        `
+        )
+
+
+        if (comments != null) {
+            for (let i = 0; i < comments.length; i++) {
+                let item = comments[i]
+
+                $(".comments").append(`
+        <div class="item">
+                <div class="whom"> <span style="flex: 1;font-size: 12px">`+ item.userName + `</span> <span style="margin-right: 40px">` + item.createTime + `</span></div>
+                <div class="comment">`+ item.content + `</div>
+            </div>
+        `)
+            }
+        } else {
+            $(".comments").append(`
+        <div class="item" style="display:flex;justify-items: center;align-items: center;">
+            <span>no comment yet</span>
+            
+            </div>
+        `)
+        }
+
+
+
+
+        $(".comments").append(`
+        <div class="bottom" style="height: 100px"></div>
+        `)
+
+
+
+        $("button").click(function () {
+            let content = $(".textArea").val()
+            if (content == '') {
+                $("button").text('can not be empty.')
+                $("button").css("color", "red")
+            } else {
+                let currentUser = $.cookie('currentUserId')
+                if (currentUser != null) {
+                    $.ajax({
+                        url: 'http://8.140.171.57:18001/publishComment',
+                        type: 'get',
+                        data: {
+                            blogId: blogDetail.id,
+                            content: content,
+                            userId: currentUser
+                        },
+                        success: function (res) {
+                            if (res.code == 210) {
+                            } else if (res.code == 211) {
+                                window.location.href = './blogDetail.html?id=' + blogDetail.id
+                            }
+                        }
+                    })
+                } else {
+                    window.location.href = './Login.html?blogId=' + blogDetail.id
+                }
+            }
+        })
+
+
+        $("button").mouseleave(function () {
+            $("button").text('commit')
+            $("button").css("color", "white")
+        })
+
+        let nickName = $.cookie('currentUserName')
+        let message = getUrlParam('message')
+        if (message == 'loginSuccess') {
+            layer.msg('Login Success, ' + nickName + " !");
+        }
+
+
+
+    })
+</script>
+
+
+<style>
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_pgHYYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJFQNcOM.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJVQNcOM.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        font-family: 'Quicksand'
+    }
+
+    .container {
+        height: 100%;
+        width: 60%;
+        /* 自动居中 */
+        margin: auto;
+        display: flex;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(236, 105, 116);
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .title {
+        height: 150px;
+        width: 100%;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 150px;
+    }
+
+
+
+    .info {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        line-height: 40px;
+        font-size: 15px;
+    }
+
+    .create_time {
+        flex: 5;
+    }
+
+    .author {
+        flex: 4;
+    }
+
+    .content {
+        font-size: 20px;
+        line-height: 25px;
+
+    }
+
+    .doComment {
+        width: 100%;
+    }
+
+    .doComment textarea {
+        height: 100px;
+        width: 98%;
+        border-radius: 20px;
+        margin: auto;
+        outline: none;
+        font-size: 20px;
+        line-height: 25px;
+        margin-top: 20px;
+    }
+
+
+    .doComment button {
+        width: 250px;
+        height: 50px;
+        border-radius: 98px;
+        margin-left: 600px;
+        font-size: 25px;
+        background-color: rgb(100, 168, 224);
+        outline: none;
+        color: white;
+        transition: all 0.1s linear 0s;
+    }
+
+    .comments .item {
+        display: flex;
+        font-size: 15px;
+        margin-top: 10px;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 98px;
+        background-color: rgb(238, 241, 241);
+        overflow: hidden;
+        transition: all 0.1s linear 0s;
+        padding-left: 40px;
+
+    }
+
+    .item:hover {
+        background-color: rgb(210, 214, 214);
+    }
+
+
+    .whom {
+        flex: 1;
+        font-size: 10px;
+        display: flex;
+    }
+
+    .comment {
+        flex: 3;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    code {
+        font-size: 14px;
+    }
+</style>
+
+</html>

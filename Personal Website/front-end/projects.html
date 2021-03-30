@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Projects</title>
+</head>
+
+<style>
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_pgHYYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJFQNcOM.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJVQNcOM.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        /* 禁止下拉 */
+        font-family: 'Quicksand'
+    }
+
+    .top{
+        height: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+
+    .item {
+        display: flex;
+        height: 750px;
+
+    }
+
+    .left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    h3{
+        color: #492f7a;
+        font-size: 30px;
+        text-align: center;
+    }
+    ul{
+        font-size: 23px;
+        line-height: 40px;
+        color: #7a7096;
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .right .title {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .right .title img {
+        height: 100%;
+    }
+
+    .right .info {
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: left;
+        font-size: 150%;
+        flex: 5;
+        align-items: center;
+    }
+
+    .pic {
+        width: 100%;
+    }
+
+    .title {
+        height: 90px;
+    }
+    .navigationBar {
+        position: fixed;
+        right: -1200px;
+        transition: all 0.3s linear 0s;
+        background-color: #492f7a;
+        opacity: 0;
+    }
+
+    .navigationBar ul {
+        list-style-type: none;
+        font-size: 30px;
+    }
+
+    .navigationBar li {
+        margin-top: 40px;
+    }
+
+    .navigationBar a {
+        text-decoration: none;
+        color: #c09da7;
+    }
+
+    .navigationBar a:hover {
+        color: white;
+    }
+
+    .navigationIcon {
+        position: fixed;
+        right: 9%;
+        top: 8%;
+    }
+
+    .navigationIcon img {
+        width: 45px;
+        height: 40px;
+    }
+
+    .navigationBack {
+        position: fixed;
+        left: 5%;
+        top: 8%;
+    }
+
+    .navigationBack img{
+        width: 45px;
+        height: 30px;
+    }
+
+    .info li{
+        font-size: 20px;
+    }
+</style>
+
+<script src="./jq/jquery-3.4.1.min.js"></script>
+<script>
+      $(document).ready(function () {
+        $(".right_info").css("height", $(window).height() + "px")
+        $(".left_image").css("height", $(window).height() + "px")
+        $(".left_image").css("width", $(window).width() / 2.2 + "px")
+        $(".navigationBar").css("height", $(window).height() + "px")
+        $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+        $(".navigationBar").css("right", "-1200px")
+        $(".link").css("opacity", "0");
+        $(".navigationBar").css("opacity", 0)
+
+        let css = $(".navigationBar").css("opacity")
+        console.log(css)
+
+        $(window).resize(function () {
+            $(".right_info").css("height", $(window).height() + "px")
+            $(".left_image").css("height", $(window).height() + "px")
+            $(".left_image").css("width", $(window).width() / 2.2 + "px")
+            $(".navigationBar").css("right", "-1200px")
+            $(".navigationBar").css("height", $(window).height() + "px")
+            $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+            $(".link").css("opacity", "0");
+            $(".navigationBar").css("opacity", "0")
+        })
+
+
+        $(".button").click(function () {
+            let css = $(".navigationBar").css("right")
+            console.log(css)
+            if (css == '10px') {
+                $(".navigationBar").css("right", "-1200px")
+                $(".navigationBar").css("opacity", "0")
+                $(".navigationBar").css("height", $(window).height() + "px")
+                $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+                $(".link").css("opacity", "0");
+            } else {
+                // display = none;
+                $(".navigationBar").css("right", "10px")
+                $(".navigationBar").css("opacity", "1")
+                $(".navigationBar").css("height", $(window).height() + "px")
+                $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+                $(".link").css("opacity", "1");
+            }
+        })
+
+        $(".link").click(function () {
+            $(".navigationBar").css("right", "-1200px")
+            $(".navigationBar").css("opacity", "0")
+            $(".navigationBar").css("height", $(window).height() + "px")
+            $(".navigationBar").css("width", $(window).width() / 1.95 + "px")
+            $(".link").css("opacity", "0");
+        })
+
+        $(".navigationBack").click(function () {
+            window.location.href = './AboutMeHomePage.html'
+        })
+
+    })
+</script>
+
+<body>
+    <div class="navigationBar isHidden">
+        <ul>
+            <li><a href="./index.html" class="link">Introduction</a></li>
+            <li><a href="./AboutMeHomePage.html" class="link">Learn More About Me</a></li>
+            <li><a href="./index.html#Technology" class="link">Technology Skills</a></li>
+            <li><a href="./blogs.html" class="link">Blogs</a></li>
+            <li><a href="./index.html#contact_me" class="link">Contact Me</a></li>
+        </ul>
+    </div>
+    <div class="navigationIcon">
+        <img class="button" src="./static/images/nevBarIcon1.jpg" style="cursor: pointer;" alt="">
+    </div>
+    <div class="navigationBack">
+        <img class="button" src="./static/mamHomePage/back_icon.jpg" style="cursor: pointer;" alt="">
+    </div>
+
+
+
+    
+<div>
+    <img class="top" src="./static/mamHomePage/IMG_1412.JPG" style="width: 100%;" alt="">
+</div>
+<br>
+<br>
+<br>
+<div class="item">
+    <div class="left bc1">
+        <img class="pic" src="./static/aboutMeImg/personalWeb.jpeg" alt="">
+    </div>
+    <div class="right">
+        <div class="title"></div>
+        <h3 style="margin: auto;font-size: 40px;">Personal Website</h3>
+        <div class="info">
+            <ul>
+                <li>Designed and developed a responsive personal website to showcase descriptions of word
+                    experiences,
+                    educations, projects, programming profiles, and blogs by using HTML, CSS, and
+                    JavaScript.</li>
+                <li>Leveraged Bootstrap 4 to achieve mobile/laptop responsiveness, grid system, card and
+                    hover effects.</li>
+                <li>Improved webpage style with Google Fonts, Font Awesome, and jQuery Magnific Popup
+                    Library.</li>
+                <li>Managed and stored changes to source code over time by using Git Version Control.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="item">
+    <div class="left bc2">
+        <img class="pic" src="./static/aboutMeImg/carDealer.jpg" alt="">
+    </div>
+    <div class="right">
+        <div class="title">
+        </div>
+        <div class="info">
+            <h3>Car Dealer Website</h3>
+            <ul>
+                <li>Developed a car dealer web application with HTML, CSS, MongoDB to have features like
+                    registering
+                    a user, logging in, and logging out.</li>
+                <li>Built the applications such as browsing inventory, filtering, and selecting the dealer
+                    to interact with.</li>
+                <li>Stored data in CSV files and managed car dealer data through Java IO.</li>
+                <li>Provided a lead form for customers to express their interest in the car.</li>
+                <li>Applied the incentives offered by car dealers for applicable vehicles and displayed
+                    vehicles to car
+                    shoppers when they are searching for cars.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<div class="item">
+    <div class="left bc1">
+        <img class="title" src="./static/aboutMeImg/dayCare.jpeg" style="width: 100%;height: 100%;">
+    </div>
+    <div class="right">
+        <div class="title">
+            <!-- 添加title image -->
+        </div>
+        <div class="info">
+            <h3>Day Care Website</h3>
+            <ul>
+                <li>Developed an application for enrolling students, tracking annual registration renewal
+                    and immunization
+                    anniversaries, and assigning students to a teacher using Java in MVC framework.</li>
+                <li>Enrolled students to capture data such as student name, age, parent name, home address,
+                    parent phone
+                    number and used Factory Pattern to encapsulate and manage the creation of objects.</li>
+                <li>Assigned students to a teacher according to state regulations and student/teacher groups
+                    to classrooms
+                    according to state regulation.</li>
+                <li>Created alerts for an upcoming and overdue date such as annual employee review and
+                    annual
+                    registration from the original walk-in date.</li>
+                <li>Visualized the school daycare system through Java Swing (GUI) and Java AWT.</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Blogs</title>
+</head>
+<style>
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Quicksand Light'), local('Quicksand-Light'), url(./static/font/6xKodSZaM9iE8KbpRA_pgHYYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJFQNcOM.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hJVQNcOM.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Quicksand Regular'), local('Quicksand-Regular'), url(./static/font/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Quicksand Medium'), local('Quicksand-Medium'), url(./static/font/6xKodSZaM9iE8KbpRA_p2HcYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQML_B48.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYQcL_B48.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+        font-family: 'Quicksand';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Quicksand Bold'), local('Quicksand-Bold'), url(./static/font/6xKodSZaM9iE8KbpRA_pkHEYT8L_.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        font-family: 'Quicksand'
+    }
+
+    .navigationBar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        height: 6%;
+        background-color: rgb(238, 234, 234);
+        border-bottom: 1px solid rgb(216, 128, 128);
+    }
+
+    .container {
+        width: 55%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .operationBar {
+        width: 100%;
+        height: 70px;
+        margin-bottom: 10px;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .operationBar .left {
+        flex: 1;
+        font-size: 20px;
+        font-weight: 350;
+        color: rgba(17, 17, 17, 0.774);
+    }
+
+    .operationBar .right {
+        flex: 1;
+    }
+
+    .operationBar .right .operation {
+        border: 1px solid rgba(71, 69, 69, 0.993);
+        height: 35px;
+        width: 160px;
+        float: right;
+        margin-right: 30px;
+        color: rgba(43, 42, 42, 0.774);
+        font-size: 15px;
+        font-weight: 300;
+        display: flex;
+        align-items: center;
+    }
+
+    .operationBar .right .operation span {
+        margin: auto;
+    }
+
+    .operationBar .right .operation a {
+        text-decoration: none;
+        color: rgba(43, 42, 42, 0.774);
+    }
+
+    .operationBar .right .operation a:hover {
+        color: rgb(228, 119, 47);
+    }
+
+    .item {
+        width: 100%;
+        height: 350px;
+        border: 1px solid rgba(192, 187, 187, 0.993);
+        display: flex;
+    }
+
+    .item .left {
+        height: 350px;
+        width: 450px;
+    }
+
+    .item .left img {
+        height: 350px;
+        width: 450px;
+        object-fit: cover;
+    }
+
+    .item .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item .right .info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: rgb(59, 58, 58);
+        padding-left: 30px;
+        padding-top: 5px;
+        border-bottom: 1px solid gray;
+    }
+
+    .item .right .info .author {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .item .right .info .date {
+        display: flex;
+    }
+
+    .item .right .title {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 18px;
+        border-bottom: 1px solid gray;
+        margin-left: 10px;
+        font-weight: 600;
+        padding-right: 10px;
+    }
+
+    .item .right .content {
+        flex: 3;
+        padding: 15px;
+        font-size: 15px;
+        letter-spacing: 3px;
+        color: rgb(68, 67, 67);
+        border-bottom: 1px solid gray;
+        margin-left: 15px;
+    }
+
+    .item .right .interactive {
+        flex: 2;
+        display: flex;
+        align-items: center;
+    }
+
+    .item .right .interactive .comments {
+        flex: 1;
+    }
+
+    .item .right .interactive .comments span {
+        margin-left: 20px;
+    }
+
+    .item .right .interactive .views {
+        flex: 1;
+    }
+
+    .item .right .interactive .views span {
+        float: right;
+        margin-right: 20px;
+    }
+
+    .item {
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    .login {
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    .navigationBarOptions {
+        cursor: pointer;
+        width: 150px;
+        margin: auto;
+        text-align: center;
+        font-size: 14px;
+        height: 100%;
+        line-height: 50px;
+        transition: all 0.1s;
+        
+    }
+
+    .navigationBarOptions a {
+        color: black;
+        text-decoration: none;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+
+    .navigationBarOptions:hover {
+        border-bottom: 3px solid red;
+    }
+
+    .bottom {
+        height: 100px;
+    }
+</style>
+
+<script src="./jq/jquery-3.4.1.min.js"></script>
+<script src="./jq/jquery.cookie.js"></script>
+<script src="./layui/layui.all.js"></script>
+<script>
+    $(document).ready(function () {
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+
+
+        //宽高自适应
+        $("body").css({
+            "height": $(window).height()
+        })
+        $("body").resize(function () {
+            $("body").css({
+                "height": $(window).height()
+            })
+        })
+
+
+        $.ajax({
+            url: 'http://8.140.171.57:18001/getAllBlog',
+            type: 'get',
+            success: function (res) {
+                let list = res.data
+                for (let i = 0; i < list.length; i++) {
+                    let currentBlog = list[i]
+                    console.log(currentBlog);
+                    $(".blogs").append(
+                        `
+
+                        <div class="item index`+ i + `">
+                            <input class="dataplace" value="`+ currentBlog.id + `" hidden></input>
+            <div class="left">
+                <img src="`+ currentBlog.coverImagePath + `" alt="">
+            </div>
+            <div class="right">
+                <div class="title"><span>`+ currentBlog.title + `</span></div>
+                <div class="info">
+                    <div class="author"><span style="margin-top:3px;color: black;font-weight: 450">Author: Jessi Hu</span></div>
+                    <div class="date"><span>`+ currentBlog.createTime + `</span></div>
+                </div>
+
+                <div class="content" style="overflow: hidden;line-height: 19px;text-align:justify;text-align: left">
+                    `+ currentBlog.content + `
+                </div>
+                <div class="interactive">
+                    <div class="comments"><span>`+ currentBlog.comments + ` comments</span></div>
+                    <div class="views"><span>`+ currentBlog.views + ` views</span></div>
+                </div>
+            </div>
+        </div>
+                        `
+                    )
+
+                    $(".index" + i).click(function () {
+                        window.open('./blogDetail.html?id=' + currentBlog.id)
+                    })
+                }
+
+                $(".blogs").append(`
+                <div class="bottom"></div>
+                `)
+
+            }
+        })
+
+
+        let nickName = $.cookie('currentUserName')
+        console.log(nickName)
+        if (nickName != null) {
+            $(".login").text('Hi, ' + nickName)
+        } else {
+            $(".login").text("Login/SignUp")
+            $(".login").attr("href", "./Login.html")
+        }
+
+        let message = getUrlParam('message')
+        if (message == 'loginSuccess') {
+            layer.msg('Login Success, ' + nickName + " !");
+        }
+
+    })
+</script>
+
+<body>
+
+
+    <div class="navigationBar">
+        <div style="width: 1000px;margin: auto;height: 100%;display: flex;">
+            <div class="navigationBarOptions"><a href="./index.html">Introduction</a></div>
+            <div class="navigationBarOptions"><a href="./AboutMeHomePage.html">Learn More About Me</a></div>
+            <div class="navigationBarOptions"><a href="./index.html#Technology">Technology Skills</a></div>
+            <div class="navigationBarOptions"><a href="javascript:;">Blogs</a></div>
+            <div class="navigationBarOptions"><a href="./index.html#contact_me">Contact Me</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="operationBar">
+            <div class="left">
+                <span>All Posts</span>
+            </div>
+            <div class="right">
+                <div class="operation">
+                    <span><a style="font-size: 13px;" class="login">Login/SignUp</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="blogs">
+
+        </div>
+    </div>
+</body>
+
+</html>
